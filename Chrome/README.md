@@ -1,6 +1,6 @@
 # Dice Roller Chrome Extension
 
-A simple Chrome extension that allows you to roll various types of dice (d4, d6, d8, d10, d12, d20, d100) with customizable quantities.
+This is the Chrome version of this extension. The extension allows you to roll various types of dice (d4, d6, d8, d10, d12, d20, d100) with customizable quantities.
 
 ## Features
 
