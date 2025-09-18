@@ -6,31 +6,68 @@
 </head>
 <body>
   <div class="container">
-    <h1>🎲 Dice Roller</h1>
-
-    <div class="input-group">
-      <label for="diceType">Dice Type:</label>
-      <select id="diceType">
-        <option value="4">d4</option>
-        <option value="6" selected>d6</option>
-        <option value="8">d8</option>
-        <option value="10">d10</option>
-        <option value="12">d12</option>
-        <option value="20">d20</option>
-        <option value="100">d100</option>
-      </select>
+    <div class="header">
+      <h1>🎲 Dice Roller</h1>
+      <button id="themeButton" class="theme-button" title="Change Theme">🎨</button>
     </div>
 
-    <div class="input-group">
-      <label for="diceCount">Number of Dice:</label>
-      <input type="number" id="diceCount" min="1" max="10" value="1">
+    <div class="inline-inputs">
+      <div class="input-group">
+        <label for="diceType">Dice Type:</label>
+        <select id="diceType">
+          <option value="4">d4</option>
+          <option value="6" selected>d6</option>
+          <option value="8">d8</option>
+          <option value="10">d10</option>
+          <option value="12">d12</option>
+          <option value="20">d20</option>
+          <option value="100">d100</option>
+        </select>
+      </div>
+
+      <div class="input-group">
+        <label for="diceCount">Number of Dice:</label>
+        <input type="number" id="diceCount" min="1" max="101" value="1">
+      </div>
     </div>
 
-    <button id="rollButton">Roll Dice!</button>
+    <button id="rollButton">Roll!</button>
 
     <div id="results" class="results"></div>
 
     <div id="total" class="total"></div>
+  </div>
+
+  <!-- Theme Modal -->
+  <div id="themeModal" class="theme-modal">
+    <div class="theme-modal-content">
+      <div class="theme-modal-header">
+        <h3>Choose Theme</h3>
+        <button id="closeModal" class="close-button">×</button>
+      </div>
+      <div class="theme-options">
+        <button class="theme-option" data-theme="purple">
+          <div class="theme-preview theme-preview-purple"></div>
+          <span>Purple Galaxy</span>
+        </button>
+        <button class="theme-option" data-theme="blue">
+          <div class="theme-preview theme-preview-blue"></div>
+          <span>Ocean Blue</span>
+        </button>
+        <button class="theme-option" data-theme="green">
+          <div class="theme-preview theme-preview-green"></div>
+          <span>Forest Green</span>
+        </button>
+        <button class="theme-option" data-theme="sunset">
+          <div class="theme-preview theme-preview-sunset"></div>
+          <span>Sunset Orange</span>
+        </button>
+        <button class="theme-option" data-theme="dark">
+          <div class="theme-preview theme-preview-dark"></div>
+          <span>Dark Mode</span>
+        </button>
+      </div>
+    </div>
   </div>
 
   <script src="popup.js"></script>

@@ -4,8 +4,31 @@ document.addEventListener('DOMContentLoaded', function() {
   const rollButton = document.getElementById('rollButton');
   const resultsDiv = document.getElementById('results');
   const totalDiv = document.getElementById('total');
+  const themeButton = document.getElementById('themeButton');
+  const themeModal = document.getElementById('themeModal');
+  const closeModal = document.getElementById('closeModal');
+  const themeOptions = document.querySelectorAll('.theme-option');
 
   rollButton.addEventListener('click', rollDice);
+  themeButton.addEventListener('click', openThemeModal);
+  closeModal.addEventListener('click', closeThemeModal);
+  themeModal.addEventListener('click', function(e) {
+    if (e.target === themeModal) {
+      closeThemeModal();
+    }
+  });
+
+  // Add click listeners to theme options
+  themeOptions.forEach(option => {
+    option.addEventListener('click', function() {
+      const selectedTheme = this.dataset.theme;
+      changeTheme(selectedTheme);
+      closeThemeModal();
+    });
+  });
+
+  // Load saved theme
+  loadTheme();
 
   // Allow rolling with Enter key
   diceCountInput.addEventListener('keypress', function(e) {
@@ -19,8 +42,13 @@ document.addEventListener('DOMContentLoaded', function() {
     const diceCount = parseInt(diceCountInput.value);
 
     // Validate input
-    if (diceCount < 1 || diceCount > 10) {
-      alert('Please enter a number of dice between 1 and 10.');
+    if (diceCount < 1){
+      diceCount = 1; 
+      alert("Minimum number of dice is 1");
+      return;
+    } else if (diceCount > 100){
+      diceCount = 100;
+      alert("Maximum number of dice is 100");
       return;
     }
 
@@ -59,6 +87,49 @@ document.addEventListener('DOMContentLoaded', function() {
     }, diceCount * 100);
   }
 
+  function openThemeModal() {
+    themeModal.classList.add('show');
+    updateActiveTheme();
+  }
+
+  function closeThemeModal() {
+    themeModal.classList.remove('show');
+  }
+
+  function changeTheme(selectedTheme) {
+    // Remove all theme classes
+    document.body.classList.remove('theme-purple', 'theme-blue', 'theme-green', 'theme-sunset', 'theme-dark');
+
+    // Add the selected theme class
+    document.body.classList.add(`theme-${selectedTheme}`);
+
+    // Save theme preference
+    localStorage.setItem('diceRollerTheme', selectedTheme);
+
+    // Update active state in modal
+    updateActiveTheme();
+  }
+
+  function loadTheme() {
+    const savedTheme = localStorage.getItem('diceRollerTheme') || 'purple';
+    document.body.classList.add(`theme-${savedTheme}`);
+  }
+
+  function updateActiveTheme() {
+    const currentTheme = getCurrentTheme();
+    themeOptions.forEach(option => {
+      option.classList.remove('active');
+      if (option.dataset.theme === currentTheme) {
+        option.classList.add('active');
+      }
+    });
+  }
+
+  function getCurrentTheme() {
+    const savedTheme = localStorage.getItem('diceRollerTheme') || 'purple';
+    return savedTheme;
+  }
+
   // Initialize with a welcome message
-  resultsDiv.innerHTML = '<div style="text-align: center; color: rgba(255,255,255,0.7); font-style: italic;">Click "Roll Dice!" to get started</div>';
+  resultsDiv.innerHTML = '<div style="text-align: center; color: rgba(255,255,255,0.7); font-style: italic;">Click "Roll!" to get started</div>';
 });
