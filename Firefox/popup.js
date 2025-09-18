@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   function changeTheme(selectedTheme) {
     // Remove all theme classes
-    document.body.classList.remove('theme-purple', 'theme-blue', 'theme-green', 'theme-sunset', 'theme-dark');
+    document.body.classList.remove('theme-purple', 'theme-blue', 'theme-green', 'theme-sunset', 'theme-dark', 'theme-light');
 
     // Add the selected theme class
     document.body.classList.add(`theme-${selectedTheme}`);
@@ -130,6 +130,4 @@ document.addEventListener('DOMContentLoaded', function() {
     return savedTheme;
   }
 
-  // Initialize with a welcome message
-  resultsDiv.innerHTML = '<div style="text-align: center; color: rgba(255,255,255,0.7); font-style: italic;">Click "Roll!" to get started</div>';
 });

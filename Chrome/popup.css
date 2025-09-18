@@ -1,11 +1,11 @@
 :root {
-  --bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  --text-color: white;
-  --button-bg: #ff6b6b;
-  --button-hover: #ff5252;
-  --input-bg: rgba(255, 255, 255, 0.9);
-  --dice-bg: rgba(255, 255, 255, 0.2);
-  --total-bg: rgba(255, 255, 255, 0.1);
+  --bg-gradient: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  --text-color: #502c2c;
+  --button-bg: #db3434;
+  --button-hover: #b92929;
+  --input-bg: white;
+  --dice-bg: rgba(0, 0, 0, 0.1);
+  --total-bg: rgba(0, 0, 0, 0.05);
 }
 
 body {
@@ -87,6 +87,7 @@ select, input[type="number"] {
   font-size: 14px;
   background: var(--input-bg);
   color: black;
+  font-weight:bold;
   box-sizing: border-box;
 }
 
@@ -187,6 +188,16 @@ body.theme-dark {
   --total-bg: rgba(255, 255, 255, 0.08);
 }
 
+body.theme-light {
+  --bg-gradient: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  --text-color: #502c2c;
+  --button-bg: #db3434;
+  --button-hover: #b92929;
+  --input-bg: white;
+  --dice-bg: rgba(0, 0, 0, 0.1);
+  --total-bg: rgba(0, 0, 0, 0.05);
+}
+
 /* Theme Modal Styles */
 .theme-modal {
   display: none;
@@ -255,7 +266,7 @@ body.theme-dark {
 
 .theme-options {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   gap: 8px;
   overflow-y: auto;
   flex: 1;
@@ -285,18 +296,18 @@ body.theme-dark {
   align-items: center;
   gap: 12px;
   padding: 10px;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.0);
   border: none;
   border-radius: 8px;
   color: var(--text-color);
   cursor: pointer;
   transition: all 0.2s ease;
   font-size: 14px;
+  flex-shrink: 0;
 }
 
 .theme-option:hover {
   background: rgba(255, 255, 255, 0.2);
-  transform: translateX(4px);
 }
 
 .theme-option.active {
@@ -329,4 +340,8 @@ body.theme-dark {
 
 .theme-preview-dark {
   background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+}
+
+.theme-preview-light {
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
 }
