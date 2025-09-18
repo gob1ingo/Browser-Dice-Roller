@@ -10,17 +10,17 @@
     "default_popup": "popup.html",
     "default_title": "Dice Roller",
     "default_icon": {
-      "16": "icon16.png",
-      "32": "icon32.png",
-      "48": "icon48.png",
-      "128": "icon128.png"
+      "16": "icons/dice_emoji16.png",
+      "32": "icons/dice_emoji32.png",
+      "48": "icons/dice_emoji48.png",
+      "128": "icons/dice_emoji128.png"
     }
   },
 
   "icons": {
-    "16": "icon16.png",
-    "32": "icon32.png",
-    "48": "icon48.png",
-    "128": "icon128.png"
+    "16": "icons/dice_emoji16.png",
+    "32": "icons/dice_emoji32.png",
+    "48": "icons/dice_emoji48.png",
+    "128": "icons/dice_emoji128.png"
   }
 }
